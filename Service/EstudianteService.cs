@@ -122,7 +122,7 @@ namespace APIExamen.Service
             }
         }
 
-        public async Task<List<Estudiante>> ListarEstudiante()
+        public async Task<List<Estudiante>> ListarEstudiantes()
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -170,10 +170,10 @@ namespace APIExamen.Service
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                using (SqlCommand command = new SqlCommand("spListarEstudiantes", connection))
+                using (SqlCommand command = new SqlCommand("spBuscarEstudiante", connection))
                 {
                     command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@pEstudianteID", EstudianteID)
+                    command.Parameters.AddWithValue("@pEstudianteID", EstudianteID);
                     try
                     {
                         await connection.OpenAsync();

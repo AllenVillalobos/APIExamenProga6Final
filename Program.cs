@@ -10,7 +10,11 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+//Se agreaga el contexto de la base de datos
 builder.Services.AddDbContext<ContextoBaseDatos>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("Conexion")));
+
+//Inyección del servicio de estudiantes
 builder.Services.AddScoped<EstudianteService>();
 
 // Configuración de CORS

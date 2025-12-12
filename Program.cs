@@ -17,7 +17,7 @@ builder.Services.AddDbContext<ContextoBaseDatos>(options => options.UseSqlServer
 //Inyección del servicio de estudiantes
 builder.Services.AddScoped<EstudianteService>();
 
-// Configuración de CORS
+// Configuración de CORS permitiendo todas las solicitudes
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAllOrigins",
